@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "FinCalcAgent: A Hybrid Symbolic-Neural Multi-Agent Framework for Precise Financial Calculation"
+authors:
+  - family-names: Parekh
+    given-names: Kunjesh
+  - family-names: Tiwari
+    given-names: Anil Kumar
+  - family-names: Saxena
+    given-names: Divya
+version: "1.0.0"
+date-released: 2026-04-19
+url: "https://github.com/kunjesh90/P23AI0003_AgenticAI_FinCalcAgent"
+preferred-citation:
+  type: software
+  title: "FinCalcAgent: A Hybrid Symbolic-Neural Multi-Agent Framework for Precise Financial Calculation"
+  authors:
+    - family-names: Parekh
+      given-names: Kunjesh
+    - family-names: Tiwari
+      given-names: Anil Kumar
+    - family-names: Saxena
+      given-names: Divya
+  version: "1.0.0"
+  url: "https://github.com/kunjesh90/P23AI0003_AgenticAI_FinCalcAgent"
+  message: "Please cite this software if you use it in your work."
