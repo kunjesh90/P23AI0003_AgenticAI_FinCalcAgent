@@ -87,3 +87,16 @@ v
 ```
 The architecture uses a router-first design with three specialized routes: calculation, RAG rules, and rate query. Deterministic Python engines handle all arithmetic, while LLMs are restricted to extraction, planning, policy narration, and formatting.
 
+## Model Configuration
+
+| Agent | Model | Temperature | Output Type | LLM Role |
+|---|---|---:|---|---|
+| Router | Llama-4-Scout-17B | 0.1 | JSON | Classification |
+| Agent-1 Extractor | Llama-4-Scout-17B | 0.1 | JSON | Parameter extraction |
+| Agent-1 Validator | Pure Python | — | JSON | Field validation |
+| Agent-2 Planner | Llama-4-Scout-17B | 0.1 | JSON | Calculation planning |
+| Agent-3/4 Calculator | Pure Python | — | Dict | All arithmetic |
+| Agent-Explainer | Llama-4-Scout-17B | 0.3 | Natural language | Narration only |
+| Agent-RULES | Llama-4-Scout-17B | 0.3 | Natural language | Policy narration |
+| Agent-RateQuery | Llama-4-Scout-17B | 0.1 | Table + text | Rate formatting |
+
