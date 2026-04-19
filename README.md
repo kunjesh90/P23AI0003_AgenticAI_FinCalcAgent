@@ -147,6 +147,7 @@ FinCalcAgent relies on deterministic Python engines for all exact numerical oper
 | Compounding Engine | Computes cumulative and periodic compounding | Period-wise / maturity values |
 | TDS Engine | Applies TDS rules based on amount and PAN status | Gross / net interest |
 | Premature Withdrawal Engine | Calculates early closure settlement | Premature withdrawal amount |
+
 These engines are designed to be small, transparent, and rule-based so that every intermediate step can be inspected and audited. The LLM only explains the result; it does not compute the result.
 
 ## Benchmark and Evaluation
@@ -306,6 +307,7 @@ python main.py
 | Notebook Environment | Jupyter / Google Colab |
 | Evaluation | Custom benchmark scripts |
 | Output Format | JSON, tables, and natural language |
+
 The system uses LLMs for routing, extraction, planning, narration, and formatting, while all exact financial arithmetic remains in deterministic Python engines.
 
 ## Research Contribution
