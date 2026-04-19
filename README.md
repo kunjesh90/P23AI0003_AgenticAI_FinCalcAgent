@@ -165,6 +165,7 @@ FinCalcAgent is evaluated on a domain-specific benchmark built for fixed deposit
 | Edge Cases | Leap-year, month-end, and special-tenure scenarios |
 | Robustness | Invalid or incomplete user queries |
 | Policy Queries | RBI, TDS, and FD rule questions |
+
 The benchmark is designed to measure exactness, robustness, and policy grounding rather than only conversational fluency.
 
 ## Repository Structure
