@@ -328,7 +328,7 @@ This project demonstrates that architecture can matter more than model size for 
 ## Citation
 
 If you use this repository, please cite it using the citation information provided in `CITATION.cff` or GitHub’s “Cite this repository” option.
-```
+
 
 ## License
 
