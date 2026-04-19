@@ -327,15 +327,7 @@ This project demonstrates that architecture can matter more than model size for 
 
 ## Citation
 
-If you use this repository in academic work, please cite the associated paper or repository.
-
-```bibtex
-@misc{parekh2026fincalcagent,
-  title={FinCalcAgent: A Hybrid Symbolic-Neural Multi-Agent Framework for Precise Financial Calculation},
-  author={Kunjesh Parekh and Anil Kumar Tiwari and Divya Saxena},
-  year={2026},
-  note={GitHub repository}
-}
+If you use this repository, please cite it using the citation information provided in `CITATION.cff` or GitHub’s “Cite this repository” option.
 ```
 
 ## License
