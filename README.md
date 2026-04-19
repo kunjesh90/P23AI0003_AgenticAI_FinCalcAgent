@@ -23,3 +23,69 @@ The system is designed for three types of queries:
 - **Rate query questions** for structured interest-rate lookup.
 
 FinCalcAgent is built to reduce arithmetic hallucination, improve transparency, and support reproducible financial AI research.
+
+## Architecture
+
+![FinCalcAgent Architecture](docs/assets/fincalcagent_architecture.jpg)
+
+```text
+|---------------------- USER QUERY ----------------------|
+|
+v
+|------------- ROUTER AGENT : Llama-4-Scout-17B --------|
+|
+---------------------------------------------------
+| | |
+v v v
+
++================ ROUTE A : CALCULATION ================+
+| Agent 1 : Parameter Extractor |
+| LLM -> Structured JSON |
+| |
+| Python Validator |
+| Field Check - No LLM |
+| |
+| Agent 2 : Calculation Planner |
+| LLM -> Plan JSON |
+| |
+| Agent 3/4 : Python Calculation Engine |
+| All Arithmetic - No LLM |
+| |
+| Agent Explainer |
+| Narration Only - No Arithmetic |
+| |
+| Engines: Tenure | Rolling | Rate | Compound | TDS |
+| Premature Withdrawal |
++======================================================+
+
++================== ROUTE B : RAG RULES ===============+
+| FAISS Index |
+| all-MiniLM-L6-v2 | Top 3 |
+| |
+| Agent Rules |
+| Policy Narration |
+| No Arithmetic |
++======================================================+
+
++================ ROUTE C : RATE QUERY ================+
+| File Extractor |
+| LLM -> Filter Params |
+| |
+| Python Rate Card Filter |
+| Exact Slab Match |
+| |
+| Rate Formatter |
+| LLM -> Markdown Table |
++======================================================+
+
+\ | /
+\ | /
+\ | /
+-------------------------------------------
+|
+v
+
+|-------------------- RESPONSE TO USER ----------------|
+```
+The architecture uses a router-first design with three specialized routes: calculation, RAG rules, and rate query. Deterministic Python engines handle all arithmetic, while LLMs are restricted to extraction, planning, policy narration, and formatting.
+
