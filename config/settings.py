@@ -1,22 +1,47 @@
 import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+# ---------------------------
+# DATA FILE PATHS
+# ---------------------------
+QUESTIONS_FILE = os.path.join(DATA_DIR, "questions.csv")
+GUIDELINES_PDF = os.path.join(DATA_DIR, "Guidelines_pdf.pdf")
+INT_RATE_FILE = os.path.join(DATA_DIR, "int_rate_new.xlsx")
+
+# Optional legacy / extra file if you still use calculation RAG anywhere
+FD_DOCX_FILE = os.path.join(DATA_DIR, "fd_int.docx")
+
+# ---------------------------
+# API KEYS
+# ---------------------------
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-MODEL_NAME = "llama-4-scout-17b-16e-instruct"
 
-DATA_DIR = "data"
-BENCHMARK_DIR = os.path.join(DATA_DIR, "benchmark")
-GOLDEN_DIR = os.path.join(DATA_DIR, "golden")
-POLICY_DOCS_DIR = os.path.join(DATA_DIR, "policy_docs")
-RATE_CARD_DIR = os.path.join(DATA_DIR, "rate_card")
-OUTPUT_DIR = os.path.join(DATA_DIR, "outputs")
+# ---------------------------
+# DEFAULT MODEL LIST
+# ---------------------------
+AVAILABLE_MODELS = {
+    "llama_scout": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "llama_70b": "llama-3.3-70b-versatile",
+    "llama_8b": "llama-3.1-8b-instant",
+    "qwen_32b": "qwen/qwen3-32b",
+    "gpt_oss_20b": "openai/gpt-oss-20b",
+    "gpt_oss_120b": "openai/gpt-oss-120b",
+}
 
-QUESTIONS_FILE = os.path.join(BENCHMARK_DIR, "questions.csv")
-BENCHMARK_FILE = os.path.join(BENCHMARK_DIR, "goldenans.xlsx")
-GOLDEN_CALC_FILE = os.path.join(GOLDEN_DIR, "goldenans_calc.xlsx")
-RATE_CARD_FILE = os.path.join(RATE_CARD_DIR, "intratenew.xlsx")
-POLICY_DOC_FILE = os.path.join(POLICY_DOCS_DIR, "guidelines_pdf.pdf")
-BENCHMARK_PROMPT_FILE = os.path.join(BENCHMARK_DIR, "Benchmark_Prompt.docx")
+# ---------------------------
+# ACTIVE MODEL CONFIG
+# ---------------------------
+MODEL_CONFIG = {
+    "router": AVAILABLE_MODELS["llama_scout"],
+    "agent1": AVAILABLE_MODELS["llama_scout"],
+    "agent2": AVAILABLE_MODELS["llama_scout"],
+    "ragrules": AVAILABLE_MODELS["llama_scout"],
+    "agentexplainer": AVAILABLE_MODELS["llama_scout"],
+    "agentratequery": AVAILABLE_MODELS["llama_scout"],
+    "default": AVAILABLE_MODELS["llama_scout"],
+}
 
-MAIN_NOTEBOOK_FILE = "Agentic_FD_V12.5.ipynb"
-ABLATION_NOTEBOOK_FILE = "Agentic_FD_V12.6_Ablation.ipynb"
-README_FILE = "README.md"
+def get_model(agent_name: str) -> str:
+    return MODEL_CONFIG.get(agent_name, MODEL_CONFIG["default"])
