@@ -26,8 +26,6 @@ FinCalcAgent is built to reduce arithmetic hallucination, improve transparency, 
 
 ## Architecture
 
-![FinCalcAgent Architecture](docs/assets/fincalcagent_architecture.jpg)
-
 ```text
 |---------------------- USER QUERY ----------------------|
 |
