@@ -10,7 +10,7 @@ authors:
     given-names: Divya
 version: "1.0.0"
 date-released: 2026-04-19
-url: "https://github.com/kunjesh90/P23AI0003_AgenticAI_FinCalcAgent"
+repository-code: "https://github.com/kunjesh90/P23AI0003_AgenticAI_FinCalcAgent"
 preferred-citation:
   type: software
   title: "FinCalcAgent: A Hybrid Symbolic-Neural Multi-Agent Framework for Precise Financial Calculation"
@@ -22,5 +22,5 @@ preferred-citation:
     - family-names: Saxena
       given-names: Divya
   version: "1.0.0"
-  url: "https://github.com/kunjesh90/P23AI0003_AgenticAI_FinCalcAgent"
+  repository-code: "https://github.com/kunjesh90/P23AI0003_AgenticAI_FinCalcAgent"
   message: "Please cite this software if you use it in your work."
